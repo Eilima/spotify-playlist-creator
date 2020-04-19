@@ -3,7 +3,7 @@ import "./App.css";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { SearchResults } from "../SearchResults/SearchResults";
 import { Playlist } from "../Playlist/Playlist";
-import { TrackList } from "../TrackList/TrackList";
+// import { TrackList } from "../TrackList/TrackList";
 
 class App extends React.Component {
   state = {
@@ -39,7 +39,6 @@ class App extends React.Component {
     ) {
       return;
     }
-
     tracks.push(track);
     this.setState({ playlistTracks: tracks });
     // if (
@@ -51,6 +50,13 @@ class App extends React.Component {
     //     playlistTracks: track,
     //   });
     // }
+  };
+  removeTrack = (track) => {
+    let tracks = this.state.playlistTracks;
+    tracks = tracks.filter((currentTrack) => currentTrack.id !== track.id);
+    this.setState({
+      playlistTracks: tracks,
+    });
   };
 
   render() {
@@ -69,6 +75,7 @@ class App extends React.Component {
             <Playlist
               playlistName={this.state.playlistName}
               playlistTracks={this.state.playlistTracks}
+              onRemove={this.removeTrack}
             />
           </div>
         </div>
