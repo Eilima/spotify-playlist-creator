@@ -4,6 +4,7 @@ import { SearchBar } from "../SearchBar/SearchBar";
 import { SearchResults } from "../SearchResults/SearchResults";
 import { Playlist } from "../Playlist/Playlist";
 // import { TrackList } from "../TrackList/TrackList";
+import Spotify from "../../util/Spotify";
 
 class App extends React.Component {
   state = {
@@ -67,6 +68,10 @@ class App extends React.Component {
     let trackURIs = this.state.playlistTracks.map((track) => track.uri);
   };
 
+  search = (searchTerm) => {
+    Spotify.search(searchTerm);
+  };
+
   render() {
     return (
       <div>
@@ -74,7 +79,7 @@ class App extends React.Component {
           Ja<span className="highlight">mmm</span>ing
         </h1>
         <div className="App">
-          <SearchBar />
+          <SearchBar onSearch={this.search} />
           <div className="App-playlist">
             <SearchResults
               searchResults={this.state.searchResults}
