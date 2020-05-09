@@ -59,6 +59,12 @@ class App extends React.Component {
     });
   };
 
+  updatePlaylistName = (name) => {
+    this.setState({
+      playlistName: name,
+    });
+  };
+
   render() {
     return (
       <div>
@@ -76,6 +82,7 @@ class App extends React.Component {
               playlistName={this.state.playlistName}
               playlistTracks={this.state.playlistTracks}
               onRemove={this.removeTrack}
+              onNameChange={this.updatePlaylistName}
             />
           </div>
         </div>
