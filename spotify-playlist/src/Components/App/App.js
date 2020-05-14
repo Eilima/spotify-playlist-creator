@@ -4,7 +4,6 @@ import { SearchBar } from "../SearchBar/SearchBar";
 import { SearchResults } from "../SearchResults/SearchResults";
 import { Playlist } from "../Playlist/Playlist";
 import Spotify from "../util/Spotify";
-// import { TrackList } from "../TrackList/TrackList";
 
 class App extends React.Component {
   state = {
