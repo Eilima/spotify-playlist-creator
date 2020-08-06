@@ -9,6 +9,7 @@ export class SearchBar extends React.Component {
   // Passes the compnents state to app.js
   search = (e) => {
     this.props.onSearch(this.state.term, e);
+    e.preventDefault();
   };
   // accepts the event from the onClick button attribute
   handleTermChange = (event) => {
@@ -25,10 +26,9 @@ export class SearchBar extends React.Component {
       <div className="SearchBar">
         <form>
           <input
-            placeholder="Enter A Song, Album, or Artist"
+            placeholder={"Enter A Song, Album, or Artist"}
             onChange={this.handleTermChange}
           />
-          <br />
           <button className="SearchButton" onClick={this.search}>
             SEARCH
           </button>
