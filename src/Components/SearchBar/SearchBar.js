@@ -7,8 +7,8 @@ export class SearchBar extends React.Component {
     term: "",
   };
   // Passes the compnents state to app.js
-  search = () => {
-    this.props.onSearch(this.state.term);
+  search = (e) => {
+    this.props.onSearch(this.state.term, e);
   };
   // accepts the event from the onClick button attribute
   handleTermChange = (event) => {
@@ -23,13 +23,16 @@ export class SearchBar extends React.Component {
     // Make form for when user presses enter it will submit for search
     return (
       <div className="SearchBar">
-        <input
-          placeholder="Enter A Song, Album, or Artist"
-          onChange={this.handleTermChange}
-        />
-        <button className="SearchButton" onClick={this.search}>
-          SEARCH
-        </button>
+        <form>
+          <input
+            placeholder="Enter A Song, Album, or Artist"
+            onChange={this.handleTermChange}
+          />
+          <br />
+          <button className="SearchButton" onClick={this.search}>
+            SEARCH
+          </button>
+        </form>
       </div>
     );
   }
