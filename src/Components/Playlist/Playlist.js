@@ -9,6 +9,7 @@ export const Playlist = ({
   onRemove,
   onSave,
 }) => {
+  // A handler function that will change the value of the App component's state, playlistName, when the user interacts with the input field.
   const handleNameChange = (event) => {
     onNameChange(event.target.value);
   };
