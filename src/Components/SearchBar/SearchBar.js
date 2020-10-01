@@ -2,21 +2,22 @@ import React, { useState } from "react";
 import "./SearchBar.css";
 
 export const SearchBar = ({ onSearch }) => {
-  // sets the components state
-  const [term, setTerm] = useState("");
-  // Passes the compnents state to app.js
+  // Sets the functional component state
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Will call function and pass arguement.
   const search = (e) => {
-    onSearch(term);
+    // Calls the search functio in the App component.
+    onSearch(searchTerm);
+    // Prevents a refresh of the page
     e.preventDefault();
   };
-  // accepts the event from the onClick button attribute
+  // Function that will change the components state, term, when the user interacts with input field
   const handleTermChange = (event) => {
-    // Obtain the value from the event and sets the state
-    setTerm(event.target.value);
+    // Obtains the value from the event passed and sets the state
+    setSearchTerm(event.target.value);
   };
 
-  // ToDo
-  // Make form for when user presses enter it will submit for search
   return (
     <div className="SearchBar">
       <form>
